@@ -1,0 +1,17 @@
+.store {
+  max-width: 1300px;
+  margin: 50px auto;
+  padding: 0 30px;
+
+  &__title {
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  &__items {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 20px;
+  }
+}

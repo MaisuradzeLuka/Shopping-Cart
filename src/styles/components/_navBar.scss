@@ -1,0 +1,58 @@
+.navBarWrapper {
+  background-color: #fff;
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navBar {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 22px;
+
+    &__listitem {
+      color: $lightGrey;
+      transition: color 0.2s;
+    }
+
+    &__listitem:hover {
+      color: #000;
+    }
+  }
+
+  &__btn {
+    background-color: #fff;
+    width: 3rem;
+    height: 3rem;
+    padding: 13px;
+    border-radius: 50%;
+    color: $btnBlue;
+    border: 1px solid $btnBlue;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    position: relative;
+
+    &__cartItems {
+      position: absolute;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: #dc143c;
+      border-radius: 50%;
+      bottom: 0;
+      right: 0;
+      color: #fff;
+      transform: translate(25%, 25%);
+    }
+  }
+
+  &__btn:hover {
+    background-color: $btnBlue;
+    color: #fff;
+  }
+}

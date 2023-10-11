@@ -1,0 +1,11 @@
+@media (max-width: 850px) {
+  .store__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .store__items {
+    grid-template-columns: 1fr;
+  }
+}
