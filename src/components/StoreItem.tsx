@@ -1,4 +1,5 @@
 import { formatCurrency } from "../utils/formatCurrency";
+import { useShoppingCartContext } from "../context/ShoppingCartProvider";
 
 interface IStoreItem {
   id: number;
@@ -8,7 +9,10 @@ interface IStoreItem {
 }
 
 const StoreItem = ({ id, name, price, imgUrl }: IStoreItem) => {
-  const quantity = 0;
+  const { getQuantity, increaseQuantity, decreaseQuantity, removeItem } =
+    useShoppingCartContext();
+
+  const quantity = getQuantity(id);
 
   return (
     <div className="storeItem">
@@ -19,15 +23,23 @@ const StoreItem = ({ id, name, price, imgUrl }: IStoreItem) => {
           <span>{formatCurrency(price)}</span>
         </div>
         {quantity === 0 ? (
-          <button className="storeItem__body__addBtn">+ Add To Cart</button>
+          <button
+            className="storeItem__body__addBtn"
+            onClick={() => increaseQuantity(id)}
+          >
+            + Add To Cart
+          </button>
         ) : (
           <div className="storeItem__body__quantity">
             <div className="storeItem__body__quantity__btns">
-              <button>-</button>
-              <span>0</span>
-              <button>+</button>
+              <button onClick={() => decreaseQuantity(id)}>-</button>
+              <span>{quantity}</span>
+              <button onClick={() => increaseQuantity(id)}>+</button>
             </div>
-            <button className="storeItem__body__quantity__removeBtn">
+            <button
+              className="storeItem__body__quantity__removeBtn"
+              onClick={() => removeItem(id)}
+            >
               Remove
             </button>
           </div>

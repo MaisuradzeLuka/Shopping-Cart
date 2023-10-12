@@ -1,0 +1,52 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+.cart {
+  padding: 10px 20px;
+  position: fixed;
+  z-index: 1045;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 100%;
+  background-color: #fff;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 400px;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+
+  &__titleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__closeBtn {
+      background-color: transparent;
+      border: none;
+      font-size: 35px;
+      font-weight: 100;
+      color: $lightGrey;
+      cursor: pointer;
+    }
+
+    &__closeBtn:hover {
+      color: #000;
+    }
+  }
+
+  &__total {
+    font-size: 20px;
+    align-self: flex-end;
+    font-weight: 600;
+  }
+}
