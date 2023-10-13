@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 import Cart from "../components/Cart";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface IShoppingCartProviderProps {
   children: ReactNode;
@@ -28,7 +29,10 @@ export function useShoppingCartContext() {
 }
 
 const ShoppingCartProvider = ({ children }: IShoppingCartProviderProps) => {
-  const [quantity, setQuantity] = useState<ICartItem[]>([]);
+  const [quantity, setQuantity] = useLocalStorage<ICartItem[]>(
+    "shipping cart",
+    []
+  );
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isOpen, setIsOpen] = useState(false);
 
